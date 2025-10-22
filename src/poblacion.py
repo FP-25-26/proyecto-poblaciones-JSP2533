@@ -23,12 +23,10 @@ def lee_poblaciones(ruta_fichero):
 
 
 def calcula_paises(poblaciones):
-    lista =[]
-    poblaciones.sort(key = lambda r: r.pais)
-    for e in poblaciones:
-        lista.append(e)
-    return lista
-print(calcula_paises(lee_poblaciones("data/population.csv")))
+    conjunto_paises = set()
+    for tupla_reg_pob in poblaciones:
+        conjunto_paises.add(tupla_reg_pob.pais)
+    return sorted(conjunto_paises)
 
 
 def filtra_por_pais(poblaciones, nombre_o_codigo):
