@@ -30,7 +30,21 @@ def calcula_paises(poblaciones):
 
 
 def filtra_por_pais(poblaciones, nombre_o_codigo):
-    filtra_por_pais(lee_poblaciones("data/population.csv"))
+    lista_filtrada = []
+    for p in poblaciones:
+        if p.pais == nombre_o_codigo or p.codigo == nombre_o_codigo:
+            tupla = (p.año, p.censo)
+            lista_filtrada.append(tupla)
+        return lista_filtrada
+
+def filtra_por_paises_y_anyo(poblaciones, anyo, paises):
+    lista_filtrada = []
+    for p in poblaciones:
+        if p.año == anyo and p.pais in paises:
+            tupla = (p.pais, p.censo)
+            lista_filtrada.append(tupla)
+    return lista_filtrada
+
 
 
 
